@@ -11,13 +11,30 @@
 
 Bienvenidos al desarrollo de prueba con php, para poder instalar de manera correcta el proyecto en su pc, tenga en cuenta los siguientes pasos:
 
--Bajar proyecto a su carpeta local
--En la consola de comandos ejecutar el siguiente comando 'composer install'
--Crear archivo .env y pegar codigo que aparece en .env.example
--Configurar base de datos, verificar que este la base de datos creada
--Ejecutar 'php artisan migrate'
--Ejecutar 'php artisan serve'
--En su navegador ingresar 'http://127.0.0.1:8000'
+1. Bajar proyecto a su carpeta local
+2. En la consola de comandos ejecutar el siguiente comando 'composer install'
+3. Crear archivo .env y pegar codigo que aparece en .env.example
+4. Configurar base de datos, verificar que este la base de datos creada
+5. Ejecutar 'php artisan migrate'
+6. Ejecutar 'php artisan serve'
+7. En su navegador ingresar 'http://127.0.0.1:8000'
 Listo
 
 Tener en cuenta version de laravel 10.
+
+Consultas SQL 
+1. SELECT p.producto_nombre AS producto, SUM(v.venta_cantidad) AS total_vendido 
+FROM productos p 
+JOIN ventas v ON p.id = v.id_producto 
+GROUP BY p.id 
+ORDER BY total_vendido DESC 
+LIMIT 1;
+
+2. SELECT productos.producto_nombre, productos.producto_stock 
+FROM productos 
+ORDER BY productos.producto_stock DESC 
+LIMIT 1;
+
+
+
+
